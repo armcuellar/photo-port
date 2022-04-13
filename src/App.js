@@ -1,7 +1,7 @@
-import React from 'react';
-import About from './components/About';
+import React, { useState } from 'react';
 import Nav from './components/Nav';
 import Gallery from './components/Gallery';
+import About from './components/About';
 import './App.css';
 
 function App() {
@@ -19,10 +19,16 @@ function App() {
 
   return (
     <div>
-      <Nav></Nav>
+      <Nav
+        categories={categories}
+        setCurrentCategory={setCurrentCategory}
+        currentCategory={currentCategory}
+      ></Nav>
       <main>
-        <Gallery></Gallery>
-        <About></About>
+        <div>
+          <Gallery currentCategory={currentCategory}></Gallery>
+          <About></About>
+        </div>
       </main>
     </div>
   );
